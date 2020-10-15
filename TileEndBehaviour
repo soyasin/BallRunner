@@ -1,0 +1,30 @@
+using UnityEngine;
+
+/// <summary>
+/// PC 가 tileendcollider 와 충돌하면 체크해서
+/// 다음 Tile 을 생성하고
+/// 지정된 값만큼 시간이 지난뒤에 현재의 tile 들을 지운다.
+/// 
+/// </summary>
+
+public class TileEndBehaviour : MonoBehaviour
+{
+  // 타일을 사라지게할 시간
+  [Tooltip("타일을 사라지게 할 시간")]
+  [Range(0,15)]
+  public float despwanTiletime:
+  
+  
+  public void OnTriggerEnter (Collide col)
+  {
+    if (col.gameobject.getcomponent<PlayerBehaviour>())
+    {
+      // 게임컨트롤러를 찾은뒤 다음 타일 생성하는 매서드를 실행한다.
+      GameObject.FindObjectOfType<gamecontroller>().spawnNextTile();
+      
+      // 현재의 게임오브젝트를 지정한 시간 만큼 지난뒤 삭제회
+      destroy(transform.parent.gameobject, despwanTileTime);
+    }
+  }
+  
+}
