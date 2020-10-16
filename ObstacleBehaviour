@@ -1,0 +1,33 @@
+using UnityEngine;
+using UnityEngine.Scenemanagement;
+
+///<summary>
+///PC 와의 충돌을 체크해서 PC를 죽인뒤 다시 살리는 시간
+///일정 시간이 지난뒤 다시 씬을 로드한다.
+///</summary>
+
+public class ObstacleBehaviour : MonoBehaviour
+{
+  //PC를 죽이는데 걸리는 시간
+  [tooltip("PC를 죽인뒤 되살리는데 걸리는 시간")]
+  public float respawnTimePC = 2f;
+  
+  private void OnCollisionEnter(Collisoion col)
+  {
+    //충돌 체크했는데 PC라면
+    if (col.gameobject.getcomponent<playerBehaviour>())
+    {
+      //개체(PC) 를 죽인다.
+      destroy(col.gameobject);
+      
+      //게임을 다시 시작하는 씬을 로드하는 매서드를 호출한다.
+      Invoke("ResetGame",respawnTimePC);
+    }
+    
+    //게임을 다시 시작하는 매서드
+    private void ResetGame()
+    {
+      Scenemanager.loadscene(scecnmanager.getactivescenc().name);
+    }
+  }
+}
