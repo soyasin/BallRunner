@@ -1,0 +1,38 @@
+///<summary>
+///게임 컨트롤러, 씬 내에서 게임의 기본 동작을 정의하는 스크립트
+///</summary>
+
+  // 타일을 생성한다. 
+  //    - 타일안에 장애물이 생성된다.
+  //    - 타일안에 움직이는 장이물이 생성된다.
+  //    - 타일안에 먹을 것들이 생성된다.
+  // PC를 생성한다.
+  // UI를 생성한다.
+  // 게임 클리어
+  // 게임 중지
+  // 게임 종료
+
+using UnityEngine;
+using System.Collection.Generic;
+
+private class GameController : MonoBehaviour
+{
+  ///<summary>
+  ///생성할 타일을 지정한다.
+  ///</summary>
+  public Transform tile;
+  
+  ///<summary>
+  ///생성할 장애물을 지정한다.
+  ///</summary>
+  public Transform obstacle;
+  
+  ///<summary>
+  ///장애물이 없는 타일의 개수
+  ///</summary>
+  public int noObstacletile = 4;
+  
+  
+  
+  
+}
