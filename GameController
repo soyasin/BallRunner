@@ -23,14 +23,27 @@ private class GameController : MonoBehaviour
   public Transform tile;
   
   ///<summary>
+  ///생성할 타일을 최초 시작 위치를 결정한다.
+  ///</summary>
+  private Vector3 initTileStartPoint = new Vector3(0,0,-5);
+  
+  ///<summary>
   ///생성할 장애물을 지정한다.
   ///</summary>
   public Transform obstacle;
   
   ///<summary>
+  ///생성할 타일 수를 지정한다.
+  ///</summary>
+  public Int spawnStartTileNum = 10;
+  
+  ///<summary>
   ///장애물이 없는 타일의 개수
   ///</summary>
   public int noObstacletile = 4;
+  
+  
+  
   
   
   
